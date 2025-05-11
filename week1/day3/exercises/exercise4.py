@@ -1,3 +1,6 @@
+
+import string   
+
 class Zoo:
     def __init__(self, zoo_name):
         self.name = zoo_name
@@ -30,7 +33,7 @@ class Zoo:
     def get_groups(self):
         print(f"\nGrouped animals in {self.name}:")
         sorted_keys = sorted(self.grouped_animals.keys())
-        for idx, key in enumerate(sorted_keys, start=1):
+        for idx, key in zip(string.ascii_uppercase, sorted_keys):
             print(f"{idx}: {self.grouped_animals[key]}")
 
 
