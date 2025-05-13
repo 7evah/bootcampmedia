@@ -1,4 +1,7 @@
 -- Create items table
+
+create database public
+
 CREATE TABLE items (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
