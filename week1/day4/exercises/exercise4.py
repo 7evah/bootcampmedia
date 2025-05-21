@@ -35,3 +35,43 @@ my_family.born(name='Emma', age=1, gender='Female', is_child=True)
 
 
 my_family.family_presentation()
+
+
+class TheIncredibles(Family):
+    def use_power(self, name):
+        for member in self.members:
+            if member['name'] == name:
+                if member['age'] >= 18:
+                    print(f"{member['name']}'s power is: {member.get('power')}")
+                else:
+                    raise Exception(f"{member['name']} is not over 18 years old and cannot use their power.")
+
+    def incredible_presentation(self):
+        print("\n Here is our powerful family ")
+        super().family_presentation()
+
+
+
+incredible_members = [
+    {'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False, 'power': 'fly', 'incredible_name': 'MikeFly'},
+    {'name': 'Sarah', 'age': 32, 'gender': 'Female', 'is_child': False, 'power': 'read minds', 'incredible_name': 'SuperWoman'}
+]
+
+
+incredibles = TheIncredibles("Incredibles", incredible_members)
+
+
+incredibles.incredible_presentation()
+
+
+incredibles.born(name='Jack', age=2, gender='Male', is_child=True, power='Unknown Power', incredible_name='BabyJack')
+
+incredibles.incredible_presentation()
+
+
+incredibles.use_power("Michael") 
+
+try:
+    incredibles.use_power("Jack") 
+except Exception as e:
+    print("⚠️", e)
