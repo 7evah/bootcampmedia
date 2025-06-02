@@ -1,3 +1,4 @@
+// PART I: ASSETS - The provided robots array
 const robots = [
     {
       id: 1,
@@ -71,66 +72,72 @@ const robots = [
     }
 ];
 
-
+// Get references to DOM elements
 const searchInput = document.getElementById('searchInput');
 const cardList = document.getElementById('cardList');
 const noResultsMessage = document.getElementById('noResultsMessage');
 
-
+// Function to create and display robot cards
+// PART I: The website - Creates cards using values from the array
 function displayRobots(robotArray) {
-    cardList.innerHTML = ''; 
-  
+    cardList.innerHTML = ''; // Clear existing cards
+    
+    // PART II: The filter - Show/hide no results message
     if (robotArray.length === 0) {
         noResultsMessage.classList.remove('hidden');
-        return; 
+        return; // Stop if no robots to display
     } else {
         noResultsMessage.classList.add('hidden');
     }
 
-    
+    // Using forEach to iterate and create cards
     robotArray.forEach(robot => {
-     
+        // Object destructuring for easier access to properties
         const { id, name, email, image } = robot;
 
-     
+        // Create DOM elements for the card
         const card = document.createElement('div');
-        card.classList.add('card'); 
-        card.id = `robot-${id}`; 
+        card.classList.add('card'); // Add 'card' class for styling
+        card.id = `robot-${id}`; // Assign a unique ID to each card
 
         const robotImage = document.createElement('img');
-        robotImage.src = image; 
+        robotImage.src = image; // Use the image URL provided in the robot object
         robotImage.alt = `Robot ${name}`;
 
         const robotName = document.createElement('h2');
-        robotName.textContent = name; 
+        robotName.textContent = name; // Display robot name
 
         const robotEmail = document.createElement('p');
-        robotEmail.textContent = email; 
+        robotEmail.textContent = email; // Display robot email
 
-        
+        // Append elements to the card
         card.appendChild(robotImage);
         card.appendChild(robotName);
         card.appendChild(robotEmail);
 
-        
+        // Append the card to the card list container
         cardList.appendChild(card);
     });
 }
 
-
+// Function to handle search input and filter robots
+// PART II: The filter - Filters cards based on search box input
 function handleSearch(event) {
-    const searchTerm = event.target.value.toLowerCase(); 
+    const searchTerm = event.target.value.toLowerCase(); // Get search term, convert to lowercase for case-insensitivity
 
+    // Filter the 'robots' array
     const filteredRobots = robots.filter(robot => {
-        
+        // Check if robot's name (converted to lowercase) includes the search term
         return robot.name.toLowerCase().includes(searchTerm);
     });
 
-
+    // Display the filtered robots
     displayRobots(filteredRobots);
 }
 
-
+// Add event listener to the search input
+// An 'input' event fires whenever the value of an <input> or <textarea> element has been changed.
 searchInput.addEventListener('input', handleSearch);
 
+// Initial display of all robots when the page loads
 displayRobots(robots);
