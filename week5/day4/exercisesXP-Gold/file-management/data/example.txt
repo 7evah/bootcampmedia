@@ -1,0 +1,2 @@
+This is some sample content for example.txt.
+It's used to demonstrate file information retrieval.

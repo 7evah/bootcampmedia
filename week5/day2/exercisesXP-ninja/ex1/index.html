@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Search & Clear</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Giphy Search</h1>
+
+        <form id="gifSearchForm" class="gif-form">
+            <div class="form-group">
+                <label for="categoryInput">Search GIFs by category:</label>
+                <input type="text" id="categoryInput" placeholder="e.g., cats, coding, funny" required>
+            </div>
+            <button type="submit" class="btn primary-btn">Search GIFs</button>
+        </form>
+
+        <div class="gif-controls">
+            <button id="deleteAllGifsBtn" class="btn danger-btn">Delete All GIFs</button>
+        </div>
+
+        <div id="gifContainer" class="gif-grid">
+            <!-- GIFs will be appended here -->
+            <p id="statusMessage" class="message"></p>
+            <p id="errorMessage" class="hidden error-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
