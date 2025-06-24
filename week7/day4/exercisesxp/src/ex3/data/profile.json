@@ -1,0 +1,21 @@
+{
+  "SocialMedias": ["Facebook", "Twitter", "LinkedIn", "Instagram"],
+  "Skills": {
+    "Programming": ["JavaScript", "Python", "Java"],
+    "SoftSkills": ["Communication", "Teamwork", "Problem Solving"]
+  },
+  "Experiences": [
+    {
+      "id": 1,
+      "company": "Google",
+      "role": "Frontend Developer",
+      "years": "2019 - 2021"
+    },
+    {
+      "id": 2,
+      "company": "Amazon",
+      "role": "Backend Developer",
+      "years": "2021 - Present"
+    }
+  ]
+}
