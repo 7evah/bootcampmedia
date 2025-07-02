@@ -34,7 +34,7 @@ function App() {
         res = 'Invalid operation';
     }
 
-    setResult(res);
+    setResult(res); 
   };
 
   return (
